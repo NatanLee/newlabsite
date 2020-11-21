@@ -1,0 +1,66 @@
+h1{
+	margin: 0;
+	font-size: 3rem;
+	text-shadow: 2px 2px 4px #333333; 
+}
+
+.container{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+	align-content: center; 
+	justify-content: center; 
+	overflow: auto;
+	background: #000000;
+}
+
+.circle{
+	width: 500px;
+	height: 500px;
+	background: #FFFFFF;	
+	border-radius: 100%;
+	display: flex;
+	align-items: center;
+	align-content: center; 
+	justify-content: center; 
+	box-shadow: inset 50px 0px 5px 20px #CCCCCC, 0px 0px 100px 40px #FFFFFF;
+	
+}
+
+.auth{
+	text-align: center;
+	margin: 30px;
+	padding: 50px;
+	
+}
+
+form div{
+	text-align: right;
+}
+
+.auth label{
+	color: #333333;
+	font-weight: 500;
+	font-size: 1.5rem;
+}
+
+.auth input{
+	color: #EF7D55;
+	padding: 5px 10px;
+	margin: 5px 10px;
+	border-radius: 10px;
+}
+
+button{
+	padding: 5px 20px;
+	font-size: 1.1rem;
+	border-radius: 10px;
+}
+
+.errors{
+	color: red;
+}

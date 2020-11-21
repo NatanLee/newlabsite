@@ -1,0 +1,211 @@
+/*общие */
+body {
+	font-family: Verdana, sans-serif;
+	font-size: 12px;
+	box-sizing: border-box;
+	
+}
+
+h1, h2, h3, h4 {
+	margin: 0px;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+a {
+	text-decoration: none;
+	color: #EF7D55;
+}
+
+a:visited {
+  color: #EF7D55;
+}
+
+a:hover {
+    background: #ff7733;
+    color: yellow; 
+}
+
+.errors {
+	color: red;
+}
+
+/* шапка */
+.header{
+	margin-top: 0px;
+	padding: 0 10px;
+	background-color: #FFFFCC;
+}
+
+.header__bottom{
+	display: flex;
+	justify-content: space-between;
+	border-top: 1px solid #EF7D55;
+	border-bottom: 1px solid #EF7D55;
+}
+
+.header__bottom-left{
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.header__menu-title{
+	display: block;
+	font-size: 16px;
+}
+
+.header__menu-title::before {
+  content: '\25BA';
+  font-size: 80%;
+  color: green;
+}
+
+.header__menu-title.open::before {
+  content: '\25BC';
+}
+
+.header__menu {
+	position: absolute;
+	left: 0;
+	top: 54px;
+	width: 400px;
+	padding-top: 20px;
+	padding-bottom: 20px;	
+	background-color: #FFFFCC;
+}
+
+.header__menu{
+	display: none;
+}
+
+
+.header__menu ul{	
+	margin: 0;
+  list-style: none;
+  padding-left: 20px;
+
+	
+}
+
+.header__menu .menuItem li{
+	font-size: 16px;
+	line-height: 1.5;
+}
+
+.header__menu .menuItem li li{
+	font-size: 14px;
+}
+
+.header__menu.open{
+  display: block;
+
+}
+
+.header__bottom-right {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.header-right__user {
+	margin-right: 30px;	
+}
+
+.header__user span{
+	font-weight: 700;
+}
+
+.header__bottom-right a{
+	padding: 20px;
+	border-radius: 10px;
+	text-transform: uppercase;
+	font-weight: 700;
+	background-color: #FFCC66;	
+}
+
+.container{
+	//display: flex;
+}
+
+.navigation{
+	padding: 5px 10px;
+	min-width: 200px;
+	max-width: 300px;
+}
+
+nav{
+	//display: flex;	
+}
+nav a{
+	display: flex;
+	border: 1px solid #EF7D55;
+	margin: 2px;
+	padding: 0 5px 0 5px;
+}
+
+/* контент */
+
+.content {	
+	padding: 0 10px;
+}
+
+.inputForm{
+	width: 100%;
+}
+
+/* форма ввода */
+.inputForm form {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	//width: 100%;
+	//flex-direction: column;
+}
+
+.inputForm form label {	
+	flex-basis:15%;	
+}
+
+.inputForm input, select, textarea {	
+	flex-basis: 80%;
+	width: 100%;
+	color: #EF7D55;
+	padding: 2px 15px;
+	margin: 0 0 4px 0;
+	border: 2px solid #555;
+	border-radius: 4px;
+	transition: all 0.4s;
+}
+
+.inputForm input[type=submit]{
+	flex-basis: 200px;
+	font-weight: 700;
+	padding: 4px 8px;
+	margin-left: 15%;
+}
+
+.inputForm input:focus, select:focus, textarea:focus {
+    border: 2px solid #EF7D55;
+	
+}
+
+.inputForm select:focus {
+    border: 3px solid #555;
+}
+
+.records table, tr, th, td {
+	border: 1px solid #EF7D55;
+	border-collapse: collapse;
+	padding: 2px 5px;
+}
+
+.records td {
+	font-size: 12px;	
+}
+.records td[data-template]{
+	color: #4682B4;
+}
+	
