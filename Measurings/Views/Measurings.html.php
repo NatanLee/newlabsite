@@ -17,39 +17,43 @@
 	</div> -->
 	<div class="records">
 		<table>
-			<tr>
-				<th>№</th>	
-				<th>Дата начала измерения</th>							
-				<th>Основание</th>
-				<th>Заказчик</th>
-				<th>Тип заказчика</th>
-				<th>Объект исследования</th>
-				<th>Измеряемый показатель</th>				
-				<th>Место измерения (отбора пробы)</th>				
-				<th>Методика измерений</th>	
-				<th>Единица измерений</th>					
-				<th>Результат</th>
-				<th>Точность (погрешность)</th>
-				<th>Исполнитель</th>
-				<th>Примечание</th>			
-			</tr>
+			<thead>
+				<tr>
+					<th>№</th>	
+					<th>Дата начала измерения</th>							
+					<th>Основание</th>
+					<th>Заказчик</th>
+					<th>Тип заказчика</th>
+					<th>Объект исследования</th>
+					<th>Измеряемый показатель</th>				
+					<th>Место измерения (отбора пробы)</th>				
+					<th>Методика измерений</th>	
+					<th>Единица измерений</th>					
+					<th>Результат</th>
+					<th>Точность (погрешность)</th>
+					<th>Исполнитель</th>
+					<th>Примечание</th>			
+				</tr>
+			</thead>	
 			<?foreach ($all as $one):?>
-			<tr>
-				<td><a href="index.php?measuringsDetails=<?=$one['meas_ind']?>"><?=$one['meas_ind']?></a></td>	
-				<td><?=$one['m_dt_start']?></td>					
-				<td><?=$one['cause']?></td>
-				<td><?=$one['client']?></td>					
-				<td><?=$one['client_type']?></td>					
-				<td><?=$one['obj']?></td>
-				<td><?=$one['measuring_index']?></td>				
-				<td><?=$one['place']?></td>					
-				<td><?=$one['mes_method']?></td>				
-				<td><?=$one['m_unit']?></td>					
-				<td><?=$one['m_result']?></td>					
-				<td><?=$one['m_accuracy']?></td>					
-				<td><?=$one['m_executor']?></td>					
-				<td><?=$one['m_ps']?></td>					
-			</tr>
+			<tbody>	
+				<tr>
+					<td><a href="index.php?measuringsDetails=<?=$one['meas_ind']?>"><?=$one['meas_ind']?></a></td>	
+					<td><?=$one['m_dt_start']?></td>					
+					<td><?=$one['cause']?></td>
+					<td><?=$one['client']?></td>					
+					<td><?=$one['client_type']?></td>					
+					<td><?=$one['obj']?></td>
+					<td><?=$one['measuring_index']?></td>				
+					<td><?=$one['place']?></td>					
+					<td><?=$one['mes_method']?></td>				
+					<td><?=$one['m_unit']?></td>					
+					<td><?=$one['m_result']?></td>					
+					<td><?=$one['m_accuracy']?></td>					
+					<td><?=$one['m_executor']?></td>					
+					<td><?=$one['m_ps']?></td>					
+				</tr>
+			</tbody>	
 			<?endforeach;?>				
 		</table>			
 	</div>

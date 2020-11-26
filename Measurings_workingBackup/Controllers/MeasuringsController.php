@@ -114,28 +114,7 @@ class MeasuringsController extends BaseController
 			FROM measuring
 			INNER JOIN measuring_objects 
 			ON measuring_objects.obj_ind = measuring.obj_ind
-			ORDER BY meas_ind DESC")->fetchAllResult();
-		foreach($all as $key=>$element){
-			$environment = $db->sqlQuery(
-				"SELECT 
-				* 
-				FROM measuring_environment
-				WHERE meas_ind = ${element['meas_ind']}")->fetchAllResult();
-			$instruments = $db->sqlQuery(
-				"SELECT 
-				* 
-				FROM measuring_instruments
-				WHERE meas_ind = ${element['meas_ind']}")->fetchAllResult();
-			$selection = $db->sqlQuery(
-				"SELECT 
-				* 
-				FROM measuring_selection
-				WHERE obj_ind = ${element['obj_ind']}")->fetchAllResult();
-			
-//echo '<pre>';var_dump($selection);
-
-		}
-//echo '<pre>';var_dump($all);			
+			ORDER BY meas_ind DESC")->fetchAllResult();		
 		echo $this->fullRender('Measurings/Views/Measurings.html.php',[
 			'errors'=>$this->errors, 
 			'all'=>$all,			
