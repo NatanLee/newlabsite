@@ -208,4 +208,10 @@ nav a{
 .records td[data-template]{
 	color: #4682B4;
 }
+
+.measurings .environment {
+	display: flex;
+	border: 1px solid #EF7D55;
+}
+
 	
