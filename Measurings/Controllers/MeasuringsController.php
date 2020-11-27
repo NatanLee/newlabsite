@@ -130,9 +130,11 @@ class MeasuringsController extends BaseController
 				"SELECT 
 				* 
 				FROM measuring_selection
-				WHERE obj_ind = ${element['obj_ind']}")->fetchAllResult();
-			
-//echo '<pre>';var_dump($selection);
+				WHERE obj_ind = ${element['obj_ind']}")->fetchOneResult();
+			$all[$key]['environment'] = $environment;
+			$all[$key]['instruments'] = $instruments;
+			$all[$key]['selection'] = $selection;
+//echo '<pre>';var_dump($instruments);
 
 		}
 //echo '<pre>';var_dump($all);			

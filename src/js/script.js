@@ -1,7 +1,7 @@
 "use strict";
 
 
-//копирователь шаблонизатор
+////////////////копирователь шаблонизатор
 let cells = document.querySelectorAll('td');
 for (let i = 0; i < cells.length; i++){
 	cells[i].addEventListener('click', inputSetValue);
@@ -19,7 +19,7 @@ function inputSetValue(event){
 	}
 }
 
-//рисовалка графика для калибровок
+//////////////рисовалка графика для калибровок
 let canvas = document.querySelector('#calibration_canvas');
 canvas.setAttribute('width', "500px");
 canvas.setAttribute('height', "500px");
@@ -72,5 +72,17 @@ for(let i = 0; i < xArr.length; i++) {
 	
 	ctx.fillRect(30 + 440 / xRange * (xArr[i] - xMin) - 3, 30 + 440 -440 / yRange * (yArr[i] - yMin) -3, 6, 6);
 }
+
+//////////////////тогл для таблицы измерений
+let meauringsDetailsButton = document.querySelector('.measurings__details-button');
+meauringsDetailsButton.onclick = function(){
+	
+	console.log('click');
+	};
+
+let measuringsDetails = document.querySelector('.measurings__details');
+console.log(meauringsDetailsButton);
+console.log(measuringsDetails);
+
 
 
