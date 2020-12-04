@@ -1,9 +1,7 @@
-
-
-		<footer class="footer">
+	<footer class="footer">
 			
-		</footer>
-	</div>
+	</footer>
+	
 <script src="src/js/script.js"></script>	
 <script src="src/js/navMenu.js"></script>	
 <script src="src/js/verifSchedule.js"></script>	

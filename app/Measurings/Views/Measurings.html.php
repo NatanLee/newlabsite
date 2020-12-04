@@ -39,7 +39,7 @@
 			<?foreach ($all as $one):?>
 			<tbody>	
 				<tr>
-					<td><a href="#/" class="measurings__details-button">Подробнее</a></td>
+					<td><a href="#/" class="measurings__details-button" data-measuring-number = "<?=$one['meas_ind']?>">Подробнее</a></td>
 					<td><a href="index.php?measuringsDetails=<?=$one['meas_ind']?>"><?=$one['meas_ind']?></a></td>	
 					<td><?=$one['m_dt_start']?></td>					
 					<td><?=$one['cause']?></td>
@@ -57,7 +57,7 @@
 				</tr>
 				<tr>
 					<td colspan = "15">
-						<div class = "measurings__details measurings__details_hidden">
+						<div class = "measurings__details measurings__details_hidden" data-measuring-number-show = <?=$one['meas_ind']?> >
 							<div>
 								<p>Условия проведения измерений</p>
 								<div class = "environment">
