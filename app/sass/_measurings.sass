@@ -1,0 +1,38 @@
+.measurings
+	&__details
+		display: flex
+		overflow: hidden
+		transition: all 1s ease-out
+		&_hidden
+			max-height: 0
+		&_visible
+			max-height: 500px			
+	&__details-button
+		&::before
+			content: '\25BA'
+			font-size: 120%
+		&.open::before
+			content: '\25BC'		
+	.environment
+		&__title
+			font-weight: 700
+		padding: 0 5px
+		border: 1px solid $border-color
+		&__info
+			display: flex
+
+	.equipment
+		&__title
+			font-weight: 700
+		padding: 0 5px
+		border: 1px solid $border-color
+		&__info
+			display: flex
+
+	.selection
+		&__title
+			font-weight: 700
+		padding: 0 5px
+		border: 1px solid $border-color
+		&__info
+			display: flex

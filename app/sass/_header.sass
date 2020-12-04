@@ -1,0 +1,56 @@
+.header
+	margin-top: 0	
+	background-color: $background-color-light
+	&__bottom
+		display: flex;
+		justify-content: space-between
+		border-top: 1px solid $border-color
+		border-bottom: 1px solid $border-color
+	&__bottom-left
+		position: relative
+		display: flex
+		justify-content: center
+		align-items: center
+	&__menu-title
+		display: block
+		font-size: 16px
+		&::before
+			content: '\25BA'
+			font-size: 120%
+			color: $border-color
+		&.open::before
+			content: '\25BC'
+	&__menu
+		position: absolute
+		left: 0
+		top: 54px
+		width: 400px
+		padding-top: 20px
+		padding-bottom: 20px	
+		background-color: $background-color-light
+		display: none
+		ul	
+			margin: 0
+			list-style: none
+			padding-left: 20px
+		.menuItem li
+			font-size: 16px
+			line-height: 1.5
+			li
+				font-size: 14px
+		&.open
+			display: block
+	&__bottom-right
+		display: flex
+		justify-content: flex-end
+		align-items: center
+	&__user
+		margin-right: 30px
+		span
+			font-weight: 700
+	&__bottom-right a
+		padding: 20px;
+		border-radius: 10px;
+		text-transform: uppercase;
+		font-weight: 700;
+		background-color: #FFCC66;	
