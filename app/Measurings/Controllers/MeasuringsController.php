@@ -157,25 +157,25 @@ class MeasuringsController extends BaseController
 			ON measuring.obj_ind = measuring_objects.obj_ind
 			WHERE measuring.meas_ind = '".$this->get['measuringsDetails']."'")->fetchAllResult();
 	$all[0]['m_env'] = $db->sqlQuery(
-																	"SELECT
-																	*
-																	FROM measuring_environment
-																	WHERE meas_ind = '".$all[0]['meas_ind']."'")->fetchAllResult();
+		"SELECT
+		*
+		FROM measuring_environment
+		WHERE meas_ind = '".$all[0]['meas_ind']."'")->fetchAllResult();
 	$all[0]['m_eq'] = $db->sqlQuery(
-																	"SELECT
-																	*
-																	FROM measuring_instruments
-																	WHERE meas_ind = '".$all[0]['meas_ind']."'")->fetchAllResult();
+		"SELECT
+		*
+		FROM measuring_instruments
+		WHERE meas_ind = '".$all[0]['meas_ind']."'")->fetchAllResult();
 	$all[0]['s_eq'] = $db->sqlQuery(
-																	"SELECT
-																	*
-																	FROM measuring_instruments
-																	WHERE selection_index = '".$all[0]['sel_ind']."'")->fetchAllResult();						
+		"SELECT
+		*
+		FROM measuring_instruments
+		WHERE selection_index = '".$all[0]['sel_ind']."'")->fetchAllResult();						
 	$all[0]['selection'] = $db->sqlQuery(
-																	"SELECT
-																	*
-																	FROM measuring_selection
-																	WHERE sel_ind = '".$all[0]['sel_ind']."'")->fetchAllResult();							
+		"SELECT
+		*
+		FROM measuring_selection
+		WHERE sel_ind = '".$all[0]['sel_ind']."'")->fetchAllResult();							
 			
 //echo "<pre>";var_dump($all);exit;//del			
 	
@@ -246,7 +246,7 @@ class MeasuringsController extends BaseController
 		]);	
 	}
 	
-	
+
 	
 	
 	/* public function getNonDirect()
