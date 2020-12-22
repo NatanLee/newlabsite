@@ -7,11 +7,12 @@ function Measuring(){
 		
 	Measuring.init(this);
 };
-//вставоляем инпут сохраняем в объекте
-Measuring.prototype.insertInputElement = function(){
+//вставляем инпут сохраняем значение в объекте
+Measuring.prototype.insertInputElement = function(event){
 	this.clickedElement = event.target.parentNode;	
-	let inputProperies = event.target.dataset.field.split('@');	
-	if (!document.querySelector(`[name = ${inputProperies[0]}]`)){
+	let inputProperies = event.target.dataset.field.split('@');
+	let createdMiniForm = document.querySelector(`[name = ${inputProperies[0]}]`);
+	if (!createdMiniForm){
 		let insertValue = '';
 		let miniform = document.createElement('form');	
 		let inputField = document.createElement('input');
@@ -20,19 +21,24 @@ Measuring.prototype.insertInputElement = function(){
 		inputField.type = inputProperies[1];
 		miniform.name = inputProperies[0]; 		
 		inputSubmit.type = 'submit';
-		inputSubmit.value = 'Отправить';
+		inputSubmit.value = 'Сохранить';
 		miniform.append(inputField);
 		miniform.append(inputSubmit);		
 		this.clickedElement.after(miniform);
 		miniform.onsubmit = (event) => {
 			event.preventDefault();			
-			insertValue = document.forms[0]['elements'][inputField.name].value;			
-			document.forms[0].remove();
+			insertValue = document.forms[inputField.name]['elements'][inputField.name].value;			
+			document.forms[inputField.name].remove();
 			this.measuring[inputField.name] = insertValue;
-			this.showInsertedValuesInHtml();
+			this.showInsertedValuesInHtml();			
 		};
+	}else{
+		createdMiniForm.remove();
 	}
 };
+
+
+
 //отображаем вставленное значение на странице
 Measuring.prototype.showInsertedValuesInHtml = function(){
 	for(key in this.measuring){
@@ -44,19 +50,28 @@ Measuring.prototype.showInsertedValuesInHtml = function(){
 
 
 Measuring.prototype.sendMeasuringObjectToPhp = function(){
+	let json = JSON.stringify(this.measuring);
+//console.log(json);
 	let xhr = new XMLHttpRequest();
-	xhr.open('POST', URL);
-	xhr.send([body]);
-	
-	
+
+	xhr.onloadend = function() {
+		if (xhr.status == 200) {
+		  console.log("Успех");
+		} else {
+		  console.log("Ошибка " + this.status);
+		}
+	};
+
+	xhr.open('POST', '/index.php?measuringsInsert');
+	xhr.send(json);	
 };
 
 
 Measuring.init = function(that){
 	//console.log(that.inputElements);
 	that.inputElements.forEach(function(elem){
-		elem.onclick = function(){
-			that.insertInputElement();
+		elem.onclick = function(event){
+			that.insertInputElement(event);
 		};
 	})
 	

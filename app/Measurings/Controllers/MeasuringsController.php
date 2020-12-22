@@ -244,28 +244,8 @@ class MeasuringsController extends BaseController
 			'errors'=>$this->errors, 
 			'all'=>$all			
 		]);	
-	}
-	
+	}	
 
-	
-	
-	/* public function getNonDirect()
-	{
-		$db = DBModel::Instance();
-		$all = $db->sqlQuery(
-			"SELECT 
-			* 
-			FROM measuring		
-			INNER JOIN measuring_objects 
-			ON measuring_objects.obj_ind = measuring.obj_ind			
-			AND measuring.sel_ind='".$_GET['selection']."'
-			AND measuring.direct = '0'")->fetchAllResult();		
-		echo $this->fullRender('Measurings/Views/MeasuringsNonDirect.html.php',[
-			'errors'=>$this->errors, 
-			'all'=>$all,			
-		]);	
-	}	 */
-	
 //получить сведения об отборе проб одного объекта
 	public function getSelection()
 	{
@@ -534,6 +514,11 @@ class MeasuringsController extends BaseController
 		}else{
 			$this->getAll();
 		}
-	}				
+	}	
+	
+	public function insertOneMeasuring(){
+		var_dump($_POST);
+	} 
+
 		
 }

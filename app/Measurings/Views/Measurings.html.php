@@ -11,24 +11,20 @@
 		<div  class = "inputForm">
 			<div>Сведения об объекте испытаний</div>
 				<p>
-					<span class = "measurings__input-start" data-field = "cause@text">
-						+
-					</span>
-					<span>
-						Основание для проведения
-					</span>
+					<span class = "measurings__input-start" data-field = "cause@text">+</span>
+					<span>Основание для проведения</span>
 					<span class = "measurings__input-result"></span>					
 				</p>
 				<p>
-					<span class = "measurings__input-start" data-field = "client@text">
-						+
-					</span>
-					<span>
-						Заказчик
-					</span>
+					<span class = "measurings__input-start" data-field = "client@text">+</span>
+					<span>Заказчик</span>
 					<span class = "measurings__input-result"></span> 					
 				</p>
-				<p data-field = "client_type">Тип заказчика</p>
+				<p>
+					<span class = "measurings__input-start" data-field = "client_type@text">+</span>	
+					<span>Тип заказчика</span>
+					<span class = "measurings__input-result"></span>	
+				</p>
 				<p data-field = "obj">Объект исследования</p>
 				<p data-field = "place">Место измерения</p>
 			

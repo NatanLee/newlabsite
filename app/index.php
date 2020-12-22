@@ -85,6 +85,10 @@ if (!isset($_SESSION["permission"])){
 	}elseif (isset($_GET['measuringsSetNonDirect'])){
 		$m = new Measurings\Controllers\MeasuringsController();
 		$m->setNonDirect();
+//новая вставка посредством js ajax		
+	}elseif (isset($_POST['measuringsInsert'])){
+		$m = new Measurings\Controllers\MeasuringsController();
+		$m->insertOneMeasuring();
 	
 //вкк стабильность
 	}elseif (isset($_GET['vkkStabilty'])){
