@@ -1,11 +1,9 @@
 "use_strict";
 
-//console.log(document.forms);
+console.log(document.forms);
 
 function Measuring(){
 	this.inputElements = document.querySelectorAll('.measurings__input-start');
-	this.isDirectCheckbutton = document.getElementById('isDirect');
-	console.log(this.isDirectCheckbutton);
 	this.measuring = {};
 	this.clickedElement;
 		
@@ -13,30 +11,40 @@ function Measuring(){
 };
 //вставляем инпут сохраняем значение в объекте
 Measuring.prototype.insertInputElement = function(event){
-	//this.clickedElement = event.target.parentNode;	
-	let inputProperies = event.target.dataset.field;
-	let miniForm = document.querySelector(`[name = ${inputProperies}]`);
-	document.forms[inputProperies].classList = document.forms[inputProperies].classList == "" ? "hidden" : "";
-	
-	miniForm.onsubmit = (event) => {
+	this.clickedElement = event.target.parentNode;	
+	let inputProperies = event.target.dataset.field.split('@');
+	let createdMiniForm = document.querySelector(`[name = ${inputProperies[0]}]`);
+	if (!createdMiniForm){
 		let insertValue = '';
-		event.preventDefault();			
-		insertValue = document.forms[inputProperies]['elements'][inputProperies].value;		
-		this.measuring[inputProperies] = insertValue;
-		document.forms[inputProperies].classList = "hidden";
-
-		this.showInsertedValuesInHtml();			
-	};	
+		let miniform = document.createElement('form');	
+		let inputField = document.createElement('input');
+		let inputSubmit = document.createElement('input');
+		inputField.name = inputProperies[0];
+		inputField.type = inputProperies[1];
+		miniform.name = inputProperies[0]; 		
+		inputSubmit.type = 'submit';
+		inputSubmit.value = 'Сохранить';
+		miniform.append(inputField);
+		miniform.append(inputSubmit);		
+		this.clickedElement.after(miniform);
+		miniform.onsubmit = (event) => {
+			event.preventDefault();			
+			insertValue = document.forms[inputField.name]['elements'][inputField.name].value;			
+			document.forms[inputField.name].remove();
+			this.measuring[inputField.name] = insertValue;
+			this.showInsertedValuesInHtml();			
+		};
+	}else{
+		createdMiniForm.remove();
+	}
 };
 
 //отображаем сохраненные значения на странице
 Measuring.prototype.showInsertedValuesInHtml = function(){
 	for(key in this.measuring){
-		let goalElem = document.querySelector(`[data-field = ${key}]`).parentNode;
-//		console.log(goalElem);
+		let goalElem = document.querySelector(`[data-field ^= ${key}]`).parentNode;
 		let span = goalElem.querySelector('.measurings__input-result');
 		span.innerText = `- ${this.measuring[key]}`;
-		console.log(this.measuring);
 	}
 };
 
