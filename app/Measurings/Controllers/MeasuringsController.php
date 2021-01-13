@@ -104,6 +104,20 @@ class MeasuringsController extends BaseController
 		
 		$this->sel_ind;
 	}
+//получить список оборудования
+	public function getAllEquipment(){
+		$equipment = [];
+		$mMeasuringsModel = MeasuringsModel::Instance();
+		$si = $mMeasuringsModel->getEquipmentSi();
+		$vo = $mMeasuringsModel->getEquipmentVo();
+		$io = $mMeasuringsModel->getEquipmentIo();
+		$equipment = array_merge($si, $vo, $io);
+		//var_dump($equipment);
+		echo json_encode($equipment);
+
+	}
+
+
 //получить список испытаний
 	public function getAll()
 	{

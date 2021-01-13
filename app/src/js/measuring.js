@@ -1,17 +1,17 @@
 "use_strict";
 
-//console.log(document.forms);
+//console.log(document.forms.isDirect.elements.isDirect.checked);
 
 function Measuring(){
 	this.inputElements = document.querySelectorAll('.measurings__input-start');
-	this.isDirectCheckbutton = document.getElementById('isDirect');
-	console.log(this.isDirectCheckbutton);
+	this.isDirectCheckbox = document.getElementById('isDirect');
+	this.selectionForms = document.querySelector('.inputForm__forNotDirect');
 	this.measuring = {};
 	this.clickedElement;
 		
 	Measuring.init(this);
 };
-//вставляем инпут сохраняем значение в объекте
+//сохраняем значение в объекте
 Measuring.prototype.insertInputElement = function(event){
 	//this.clickedElement = event.target.parentNode;	
 	let inputProperies = event.target.dataset.field;
@@ -40,7 +40,52 @@ Measuring.prototype.showInsertedValuesInHtml = function(){
 	}
 };
 
+//получение списков оборудования
+Measuring.prototype.getAllEquipment = function(){
+	let xhr = new XMLHttpRequest();
+	xhr.open('GET', 'index.php?allEquipment');
+	xhr.responseType = 'json';
+	xhr.send();	
+	xhr.onload = () => {
+		let responseObj = xhr.response;
+		this.fillSelectByEquipment(responseObj);
+	};
+};
+
+//вывод списка оборудования в инпут
+Measuring.prototype.fillSelectByEquipment = function(equipment){
+	const inputElements = document.querySelectorAll('.measuring__equipment-select .inputElement');
+	inputElements.forEach(element => {
+		element.oninput = (event) => {
+			equipment.filter(item => )
+			console.log (event.target.value);
+		}
+	});
+	
+	
+	
+	equipment.map((arrayItem) => {
+	
+	
+	
+	
+	
+		/*	let option = document.createElement('option');
+		option.setAttribute('value', arrayItem);
+		//option.innerText = arrayItem;
+		datalistElement.append(option);
+		//console.log(option);*/
+	}); 
+	console.log(inputElements);
+};
+
+
+
+
+//тут должно все отправиться на сервер для внесения в БД, не закончено
 Measuring.prototype.sendMeasuringObjectToPhp = function(){
+	//перед отправкой прочитать значение чекбокса и добавить в отправку
+	//console.log(document.forms.isDirect.elements.isDirect.checked);
 	let json = JSON.stringify(this.measuring);
 //console.log(json);
 	let xhr = new XMLHttpRequest();	
@@ -63,20 +108,22 @@ Measuring.prototype.sendMeasuringObjectToPhp = function(){
 	xhr.send(json);	
 };
 
-
+//инициализация работы
 Measuring.init = function(that){
 	//console.log(that.inputElements);
 	that.inputElements.forEach(function(elem){
 		elem.onclick = function(event){
 			that.insertInputElement(event);
 		};
-	})
-	
-	
-	
-//	console.log(that.inputElements);
-
-	
+	});
+	that.isDirectCheckbox.onchange = (event) => {		
+		if(!event.target.checked){
+			that.selectionForms.classList.remove("hidden");
+		}else{
+			that.selectionForms.classList.add("hidden");
+		};
+	};
+	that.getAllEquipment();	
 };
 
 new Measuring();

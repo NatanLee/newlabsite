@@ -10,11 +10,11 @@
 	</div>-->
 		<div class = "inputForm">
 			<div>Сведения об объекте испытаний</div>
-				<div class = "inputForm__checkbox">
+				<form name = "isDirect" class = "inputForm__checkbox">
 					<input id = "isDirect" name = "isDirect" type="checkbox" checked>
-					<label for = "isDirect">Измерениие без отбора пробы или прямое измерение </label>
-				</div>	
-				<div class="forNotDirect">
+					<label for = "isDirect">Измерениие без отбора пробы или прямое измерение</label>
+				</form>	
+				<div class="inputForm__forNotDirect hidden">
 					<p>Сведения об отборе проб</p>
 					<p>
 						<span class = "measurings__input-start" data-field = "sel_method">+</span>
@@ -351,6 +351,20 @@
 					<input type="text" name = "m_executor">
 					<input type = "submit" value = "Сохранить">
 				</form>
+				
+				<p>
+					<span class = "measurings__input-start" data-field = "meas_eq">+</span>
+					<span>Используемое оборудование</span>
+					<span class = "measurings__input-result"></span> 				
+				</p>
+				<form class = "measuring__equipment-select hidden" name = "meas_eq">
+					<input class = "inputElement" type = "text" name = "meas_eq">
+					<ul>
+					</ul>
+					<!--<datalist id = "equipment">						
+					</datalist>-->
+					<input type = "submit" value = "Сохранить">
+				</form>
 
 				<p>
 					<span class = "measurings__input-start" data-field = "m_ps">+</span>
@@ -360,20 +374,7 @@
 				<form class = "hidden" name = "m_ps">
 					<input type="text" name = "m_ps">
 					<input type = "submit" value = "Сохранить">
-				</form>
-
-
-
-		
-			<!--
-			<form >	
-																			
-				<label for="m_eq">Используемое оборудование</label>
-				<input type="text" placeholder="Формат: СИ-001, ИО-002, ВО-003" name ="m_eq" value="<?=$m_eq?>" id="m_eq">
-															
-							
-							
-			-->
+				</form>			
 		</div>
 			
 		<div  class = "measuring-info">

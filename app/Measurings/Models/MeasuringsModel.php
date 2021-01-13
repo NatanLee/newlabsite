@@ -13,7 +13,91 @@ class MeasuringsModel
 		}
 		return self::$instance;
 	}	
+//получить список СИ
+	public function getEquipmentSi(){
+		$db = DBModel::Instance();
+		$si = $db->sqlQuery("
+			SELECT 
+			meas_equipment.out_index AS ind,
+			meas_equipment.factory_number AS number,
+			meas_equipment_types.name AS name,
+			meas_equipment_types.model AS model,
+				(SELECT MAX(meas_equipment_verification.dt_end)
+				FROM meas_equipment_verification
+				WHERE meas_equipment.out_index = meas_equipment_verification.out_index) AS dt_end,
+				(SELECT meas_equipment_verification.doc_number
+				FROM meas_equipment_verification
+				WHERE meas_equipment.out_index = meas_equipment_verification.out_index
+				ORDER BY meas_equipment_verification.dt_end DESC
+				LIMIT 1) AS doc_number			
+			FROM meas_equipment
+			INNER JOIN meas_equipment_types
+			ON meas_equipment_types.in_index = meas_equipment.in_index
+			WHERE meas_equipment.used_in_accreditation = '1'			
+			ORDER BY ind ASC									
+			")->fetchAllResult();
+		array_walk($si, function(&$item, $key){
+			$item = 'СИ-'.$item['ind'].' '.$item['name'].' '.$item['model'].', заводской №'.$item['number'].', свидетельство о поверке (калибровке) №'.$item['doc_number'].' до '.date("d.m.Y", strtotime($item['dt_end']));
+			}		
+		);		
+		return $si;
+	}
+
+//получить список ВО
+	public function getEquipmentVo(){
+		$db = DBModel::Instance();
+		$vo = $db->sqlQuery("
+			SELECT 
+			test_equipment.out_index AS ind,
+			test_equipment.factory_number AS number,
+			test_equipment_types.name AS name,
+			test_equipment_types.model AS model
+			FROM test_equipment
+			INNER JOIN test_equipment_types
+			ON test_equipment_types.in_index = test_equipment.in_index
+			WHERE test_equipment.used_in_accreditation = '1'
+			AND test_equipment.is_test = '0'		
+			ORDER BY ind ASC									
+			")->fetchAllResult();
+		array_walk($vo, function(&$item, $key){
+			$item = 'ВО-'.$item['ind'].' '.$item['name'].' '.$item['model'].', заводской №'.$item['number'];
+			}		
+		);		
+		return $vo;		
+	}	
 	
+	//получить список ИО
+	public function getEquipmentIo(){
+		$db = DBModel::Instance();
+		$io = $db->sqlQuery("
+			SELECT 
+			test_equipment.out_index AS ind,
+			test_equipment.factory_number AS number,
+			test_equipment_types.name AS name,
+			test_equipment_types.model AS model,			
+				(SELECT MAX(test_equipment_attestation.dt_end)
+				FROM test_equipment_attestation
+				WHERE test_equipment.out_index = test_equipment_attestation.out_index) AS dt_end,
+				(SELECT test_equipment_attestation.doc_number
+				FROM test_equipment_attestation
+				WHERE test_equipment.out_index = test_equipment_attestation.out_index
+				ORDER BY test_equipment_attestation.dt_end DESC
+				LIMIT 1) AS doc_number			
+			FROM test_equipment
+			INNER JOIN test_equipment_types
+			ON test_equipment_types.in_index = test_equipment.in_index
+			WHERE test_equipment.used_in_accreditation = '1'
+			AND test_equipment.is_test = '1'		
+			ORDER BY ind ASC									
+			")->fetchAllResult();
+		array_walk($io, function(&$item, $key){
+			$item = 'ИО-'.$item['ind'].' '.$item['name'].' '.$item['model'].', заводской №'.$item['number'].', аттестат №'.$item['doc_number'].' до '.date("d.m.Y", strtotime($item['dt_end']));
+			}		
+		);		
+		return $io;	
+	}
+
+
 //записать в таблицу измерения-инструменты для измерений	
 	public function instrSet($str, $meas_ind)
 	{
