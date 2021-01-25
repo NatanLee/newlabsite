@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 spl_autoload_register(function ($className){
 	include_once str_replace("\\", "/", $className).'.php';	
 });
@@ -87,7 +86,7 @@ if (!isset($_SESSION["permission"])){
 		$m->setNonDirect();
 //ajax запросы 
 //новая вставка посредством js ajax		
-	}elseif (isset($_POST['measuringsInsert'])){
+	}elseif (isset($_GET['measuringInsert'])){
 		$m = new Measurings\Controllers\MeasuringsController();
 		$m->insertOneMeasuring();
 	}elseif (isset($_GET['allEquipment'])){

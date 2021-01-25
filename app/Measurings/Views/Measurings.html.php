@@ -8,388 +8,391 @@
 	<!--<div class="addMenu">
 		<a href="index.php?measuringsObjects">Внести новый объект испытаний или испытание</a>
 	</div>-->
-		<div class = "inputForm">
-			<div>Сведения об объекте испытаний</div>
-				<form name = "isDirect" class = "inputForm__checkbox">
-					<input id = "isDirect" name = "isDirect" type="checkbox" checked>
-					<label for = "isDirect">Измерениие без отбора пробы или прямое измерение</label>
-				</form>	
-				<div class="inputForm__forNotDirect hidden">
-					<p>Сведения об отборе проб</p>
-					<p>
-						<span class = "measurings__input-start" data-field = "sel_method">+</span>
-						<span>Методика отбора пробы</span>
-						<span class = "measurings__input-result"></span>									
-					</p>
-					<form class = "hidden" name = "sel_method">
-						<input type="text" name = "sel_method">
-						<input type = "submit" value = "Сохранить">
-					</form>	
-
-					<p>
-						<span class = "measurings__input-start" data-field = "sel_dt_start">+</span>
-						<span>Дата начала отбора</span>
-						<span class = "measurings__input-result"></span>									
-					</p>
-					<form class = "hidden" name = "sel_dt_start">
-						<input type="date" name = "sel_dt_start">
-						<input type = "submit" value = "Сохранить">
-					</form>	
-
-					<p>
-						<span class = "measurings__input-start" data-field = "sel_tm_start">+</span>
-						<span>Время начала отбора</span>
-						<span class = "measurings__input-result"></span>									
-					</p>
-					<form class = "hidden" name = "sel_tm_start">
-						<input type="time" name = "sel_tm_start">
-						<input type = "submit" value = "Сохранить">
-					</form>	
-
-					<p>
-						<span class = "measurings__input-start" data-field = "sel_dt_end">+</span>
-						<span>Дата окончания отбора</span>
-						<span class = "measurings__input-result"></span>									
-					</p>
-					<form class = "hidden" name = "sel_dt_end">
-						<input type="date" name = "sel_dt_end">
-						<input type = "submit" value = "Сохранить">
-					</form>
-
-					<p>
-						<span class = "measurings__input-start" data-field = "sel_tm_end">+</span>
-						<span>Время окончания отбора</span>
-						<span class = "measurings__input-result"></span>									
-					</p>
-					<form class = "hidden" name = "sel_tm_end">
-						<input type="time" name = "sel_tm_end">
-						<input type = "submit" value = "Сохранить">
-					</form>	
-
-					<p>
-						<span class = "measurings__input-start" data-field = "to_lab_transfer">+</span>
-						<span>Дата передачи пробы в лабораторию</span>
-						<span class = "measurings__input-result"></span>									
-					</p>
-					<form class = "hidden" name = "to_lab_transfer">
-						<input type="date" name = "to_lab_transfer">
-						<input type = "submit" value = "Сохранить">
-					</form>	
-
-					<p>
-						<span class = "measurings__input-start" data-field = "sel_t">+</span>
-						<span>Температура при отборе, град. С</span>
-						<span class = "measurings__input-result"></span>									
-					</p>
-					<form class = "hidden" name = "sel_t">
-						<input type="number" step = "any" name = "sel_t">
-						<input type = "submit" value = "Сохранить">
-					</form>	
-
-					<p>
-						<span class = "measurings__input-start" data-field = "sel_rh">+</span>
-						<span>Влажность при отборе, % отн.</span>
-						<span class = "measurings__input-result"></span>									
-					</p>
-					<form class = "hidden" name = "sel_rh">
-						<input type="number" step = "any" name = "sel_rh">
-						<input type = "submit" value = "Сохранить">
-					</form>	
-
-					<p>
-						<span class = "measurings__input-start" data-field = "sel_p">+</span>
-						<span>Давление при отборе, кПа</span>
-						<span class = "measurings__input-result"></span>									
-					</p>
-					<form class = "hidden" name = "sel_p">
-						<input type="number" step = "any" name = "sel_p">
-						<input type = "submit" value = "Сохранить">
-					</form>	
-
-					<p>
-						<span class = "measurings__input-start" data-field = "sel_other_mes">+</span>
-						<span>Другие условия при отборе</span>
-						<span class = "measurings__input-result"></span>									
-					</p>
-					<form class = "hidden" name = "sel_other_mes">
-						<input type="text" name = "sel_other_mes">
-						<input type = "submit" value = "Сохранить">
-					</form>	
-
-					<p>
-						<span class = "measurings__input-start" data-field = "sel_amount">+</span>
-						<span>Количество пробы</span>
-						<span class = "measurings__input-result"></span>									
-					</p>
-					<form class = "hidden" name = "sel_amount">
-						<input type="number" step = "any" name = "sel_amount">
-						<input type = "submit" value = "Сохранить">
-					</form>	
-
-					<p>
-						<span class = "measurings__input-start" data-field = "sel_unit">+</span>
-						<span>Единица измерения</span>
-						<span class = "measurings__input-result"></span>									
-					</p>
-					<form class = "hidden" name = "sel_unit">
-						<input type="text" name = "sel_unit">
-						<input type = "submit" value = "Сохранить">
-					</form>	
-
-					<p>Оборудование для отбора пробы</p>
-
-					<p>
-						<span class = "measurings__input-start" data-field = "sel_executor">+</span>
-						<span>Исполнитель (пробоотборщик)</span>
-						<span class = "measurings__input-result"></span>									
-					</p>
-					<form class = "hidden" name = "sel_executor">
-						<input type="text" name = "sel_executor">
-						<input type = "submit" value = "Сохранить">
-					</form>	
-
-					<p>
-						<span class = "measurings__input-start" data-field = "sel_docs">+</span>
-						<span>Сопроводительные документы</span>
-						<span class = "measurings__input-result"></span>									
-					</p>
-					<form class = "hidden" name = "sel_docs">
-						<input type="text" name = "sel_docs">
-						<input type = "submit" value = "Сохранить">
-					</form>	
-				</div>			
-				
+	<div class = "inputForm">
+		<div>Сведения об объекте испытаний</div>
+			<form name = "isDirect" class = "inputForm__checkbox">
+				<input id = "isDirect" name = "isDirect" type="checkbox" checked>
+				<label for = "isDirect">Измерениие без отбора пробы или прямое измерение</label>
+			</form>	
+			<div class="inputForm__forNotDirect hidden">
+				<p>Сведения об отборе проб</p>
 				<p>
-					<span class = "measurings__input-start" data-field = "cause">+</span>
-					<span>Основание для проведения</span>
+					<span class = "measurings__input-start" data-field = "sel_method">+</span>
+					<span>Методика отбора пробы</span>
 					<span class = "measurings__input-result"></span>									
 				</p>
-				<form class = "hidden" name = "cause">
-					<input type="text" name = "cause">
+				<form class = "hidden" name = "sel_method">
+					<input type="text" name = "sel_method">
 					<input type = "submit" value = "Сохранить">
-				</form>
-				
+				</form>	
+
 				<p>
-					<span class = "measurings__input-start" data-field = "client">+</span>
-					<span>Заказчик</span>
-					<span class = "measurings__input-result"></span> 					
+					<span class = "measurings__input-start" data-field = "sel_dt_start">+</span>
+					<span>Дата начала отбора</span>
+					<span class = "measurings__input-result"></span>									
 				</p>
-				<form class = "hidden" name = "client">
-					<input type="text" name = "client">
+				<form class = "hidden" name = "sel_dt_start">
+					<input type="date" name = "sel_dt_start">
 					<input type = "submit" value = "Сохранить">
-				</form>
-				
+				</form>	
+
 				<p>
-					<span class = "measurings__input-start" data-field = "client_type">+</span>	
-					<span>Тип заказчика</span>
-					<span class = "measurings__input-result"></span>	
+					<span class = "measurings__input-start" data-field = "sel_tm_start">+</span>
+					<span>Время начала отбора</span>
+					<span class = "measurings__input-result"></span>									
 				</p>
-				<form class = "hidden" name = "client_type">
-					<select name = "client_type">
-						<option value = "Юридическое лицо" selected>Юридическое лицо</option>
-						<option value = "Физическое лицо">Физическое лицо</option>
-					</select>
+				<form class = "hidden" name = "sel_tm_start">
+					<input type="time" name = "sel_tm_start">
+					<input type = "submit" value = "Сохранить">
+				</form>	
+
+				<p>
+					<span class = "measurings__input-start" data-field = "sel_dt_end">+</span>
+					<span>Дата окончания отбора</span>
+					<span class = "measurings__input-result"></span>									
+				</p>
+				<form class = "hidden" name = "sel_dt_end">
+					<input type="date" name = "sel_dt_end">
 					<input type = "submit" value = "Сохранить">
 				</form>
 
 				<p>
-					<span class = "measurings__input-start" data-field = "obj">+</span>
-					<span>Объект исследования</span>
-					<span class = "measurings__input-result"></span> 					
+					<span class = "measurings__input-start" data-field = "sel_tm_end">+</span>
+					<span>Время окончания отбора</span>
+					<span class = "measurings__input-result"></span>									
 				</p>
-				<form class = "hidden" name = "obj">
-					<input type="text" name = "obj">
+				<form class = "hidden" name = "sel_tm_end">
+					<input type="time" name = "sel_tm_end">
 					<input type = "submit" value = "Сохранить">
-				</form>
+				</form>	
 
 				<p>
-					<span class = "measurings__input-start" data-field = "place">+</span>
-					<span>Место измерения</span>
-					<span class = "measurings__input-result"></span> 					
+					<span class = "measurings__input-start" data-field = "to_lab_transfer">+</span>
+					<span>Дата передачи пробы в лабораторию</span>
+					<span class = "measurings__input-result"></span>									
 				</p>
-				<form class = "hidden" name = "place">
-					<input type="text" name = "place">
+				<form class = "hidden" name = "to_lab_transfer">
+					<input type="date" name = "to_lab_transfer">
 					<input type = "submit" value = "Сохранить">
-				</form>
+				</form>	
 
 				<p>
-					<span class = "measurings__input-start" data-field = "m_dt_start">+</span>
-					<span>Дата начала измерения</span>
-					<span class = "measurings__input-result"></span> 					
+					<span class = "measurings__input-start" data-field = "sel_t">+</span>
+					<span>Температура при отборе, град. С</span>
+					<span class = "measurings__input-result"></span>									
 				</p>
-				<form class = "hidden" name = "m_dt_start">
-					<input type="date" name = "m_dt_start">
+				<form class = "hidden" name = "sel_t">
+					<input type="number" step = "any" name = "sel_t">
 					<input type = "submit" value = "Сохранить">
-				</form>
-				
-				<p>
-					<span class = "measurings__input-start" data-field = "m_tm_start">+</span>
-					<span>Время начала измерения</span>
-					<span class = "measurings__input-result"></span> 					
-				</p>
-				<form class = "hidden" name = "m_tm_start">
-					<input type="time" name = "m_tm_start">
-					<input type = "submit" value = "Сохранить">
-				</form>
+				</form>	
 
 				<p>
-					<span class = "measurings__input-start" data-field = "m_dt_end">+</span>
-					<span>Дата окончания измерения</span>
-					<span class = "measurings__input-result"></span> 					
+					<span class = "measurings__input-start" data-field = "sel_rh">+</span>
+					<span>Влажность при отборе, % отн.</span>
+					<span class = "measurings__input-result"></span>									
 				</p>
-				<form class = "hidden" name = "m_dt_end">
-					<input type="date" name = "m_dt_end">
+				<form class = "hidden" name = "sel_rh">
+					<input type="number" step = "any" name = "sel_rh">
 					<input type = "submit" value = "Сохранить">
-				</form>
+				</form>	
 
 				<p>
-					<span class = "measurings__input-start" data-field = "m_tm_end">+</span>
-					<span>Время окончания измерения</span>
-					<span class = "measurings__input-result"></span> 					
+					<span class = "measurings__input-start" data-field = "sel_p">+</span>
+					<span>Давление при отборе, кПа</span>
+					<span class = "measurings__input-result"></span>									
 				</p>
-				<form class = "hidden" name = "m_tm_end">
-					<input type="time" name = "m_tm_end">
+				<form class = "hidden" name = "sel_p">
+					<input type="number" step = "any" name = "sel_p">
 					<input type = "submit" value = "Сохранить">
-				</form>
+				</form>	
 
 				<p>
-					<span class = "measurings__input-start" data-field = "measuring_index">+</span>
-					<span>Измеряемый показатель</span>
-					<span class = "measurings__input-result"></span> 					
+					<span class = "measurings__input-start" data-field = "sel_other_mes">+</span>
+					<span>Другие условия при отборе</span>
+					<span class = "measurings__input-result"></span>									
 				</p>
-				<form class = "hidden" name = "measuring_index">
-					<input type="text" name = "measuring_index">
+				<form class = "hidden" name = "sel_other_mes">
+					<input type="text" name = "sel_other_mes">
 					<input type = "submit" value = "Сохранить">
-				</form>
+				</form>	
 
 				<p>
-					<span class = "measurings__input-start" data-field = "mes_method">+</span>
-					<span>Методика измерений</span>
-					<span class = "measurings__input-result"></span> 					
+					<span class = "measurings__input-start" data-field = "sel_amount">+</span>
+					<span>Количество пробы</span>
+					<span class = "measurings__input-result"></span>									
 				</p>
-				<form class = "hidden" name = "mes_method">
-					<input type="text" name = "mes_method">
+				<form class = "hidden" name = "sel_amount">
+					<input type="number" step = "any" name = "sel_amount">
 					<input type = "submit" value = "Сохранить">
-				</form>
+				</form>	
 
 				<p>
-					<span class = "measurings__input-start" data-field = "m_t">+</span>
-					<span>Температура при измерении, град. С</span>
-					<span class = "measurings__input-result"></span> 					
+					<span class = "measurings__input-start" data-field = "sel_unit">+</span>
+					<span>Единица измерения</span>
+					<span class = "measurings__input-result"></span>									
 				</p>
-				<form class = "hidden" name = "m_t">
-					<input type="number" step = "any" name = "m_t">
+				<form class = "hidden" name = "sel_unit">
+					<input type="text" name = "sel_unit">
 					<input type = "submit" value = "Сохранить">
-				</form>
+				</form>	
 
 				<p>
-					<span class = "measurings__input-start" data-field = "m_rh">+</span>
-					<span>Влажность при измерении, % отн</span>
-					<span class = "measurings__input-result"></span> 					
-				</p>
-				<form class = "hidden" name = "m_rh">
-					<input type="number" step = "any" name = "m_rh">
-					<input type = "submit" value = "Сохранить">
-				</form>
-
-				<p>
-					<span class = "measurings__input-start" data-field = "m_p">+</span>
-					<span>Давление при измерении, кПа</span>
-					<span class = "measurings__input-result"></span> 					
-				</p>
-				<form class = "hidden" name = "m_p">
-					<input type="number" step = "any" name = "m_p">
-					<input type = "submit" value = "Сохранить">
-				</form>
-
-				<p>
-					<span class = "measurings__input-start" data-field = "m_other_mes">+</span>
-					<span>Другие условия при измерении</span>
-					<span class = "measurings__input-result"></span> 					
-				</p>
-				<form class = "hidden" name = "m_other_mes">
-					<input type="text" name = "m_other_mes">
-					<input type = "submit" value = "Сохранить">
-				</form>
-
-				<p>
-					<span class = "measurings__input-start" data-field = "m_unit">+</span>
-					<span>Единица измерений</span>
-					<span class = "measurings__input-result"></span> 					
-				</p>
-				<form class = "hidden" name = "m_unit">
-					<input type="text" name = "m_unit">
-					<input type = "submit" value = "Сохранить">
-				</form>
-
-				<p>
-					<span class = "measurings__input-start" data-field = "m_result">+</span>
-					<span>Результат</span>
-					<span class = "measurings__input-result"></span> 					
-				</p>
-				<form class = "hidden" name = "m_result">
-					<input type="text" name = "m_result">
-					<input type = "submit" value = "Сохранить">
-				</form>
-
-				<p>
-					<span class = "measurings__input-start" data-field = "m_accuracy">+</span>
-					<span>Точность (погрешность)</span>
-					<span class = "measurings__input-result"></span> 					
-				</p>
-				<form class = "hidden" name = "m_accuracy">
-					<input type="text" name = "m_accuracy">
-					<input type = "submit" value = "Сохранить">
-				</form>
-
-				<p>
-					<span class = "measurings__input-start" data-field = "m_executor">+</span>
-					<span>Исполнитель</span>
-					<span class = "measurings__input-result"></span> 					
-				</p>
-				<form class = "hidden" name = "m_executor">
-					<input type="text" name = "m_executor">
-					<input type = "submit" value = "Сохранить">
-				</form>
-				
-				<p>
-					<span class = "measurings__input-start" data-field = "meas_eq">+</span>
-					<span>Используемое оборудование</span>
+					<span class = "measurings__input-start  multiValue" data-field = "selection_eq">+</span>
+					<span>Оборудование для отбора пробы</span>
 					<span class = "measurings__input-result"></span> 				
 				</p>
-				<form class = "measuring__equipment-select hidden" name = "meas_eq">
-					<input class = "inputElement" type = "text" name = "meas_eq">
-					<ul>
-					</ul>
-					<!--<datalist id = "equipment">						
-					</datalist>-->
+				<form class = "measuring__equipment-select hidden" name = "selection_eq">
+					<input class = "inputElement" type = "text" name = "selection_eq">					
+					<ul class = ulElement>
+					</ul>						
 					<input type = "submit" value = "Сохранить">
 				</form>
 
 				<p>
-					<span class = "measurings__input-start" data-field = "m_ps">+</span>
-					<span>Примечание</span>
-					<span class = "measurings__input-result"></span> 					
+					<span class = "measurings__input-start" data-field = "sel_executor">+</span>
+					<span>Исполнитель (пробоотборщик)</span>
+					<span class = "measurings__input-result"></span>									
 				</p>
-				<form class = "hidden" name = "m_ps">
-					<input type="text" name = "m_ps">
+				<form class = "hidden" name = "sel_executor">
+					<input type="text" name = "sel_executor">
 					<input type = "submit" value = "Сохранить">
-				</form>			
-		</div>
+				</form>	
+
+				<p>
+					<span class = "measurings__input-start" data-field = "sel_docs">+</span>
+					<span>Сопроводительные документы</span>
+					<span class = "measurings__input-result"></span>									
+				</p>
+				<form class = "hidden" name = "sel_docs">
+					<input type="text" name = "sel_docs">
+					<input type = "submit" value = "Сохранить">
+				</form>	
+			</div>			
 			
-		<div  class = "measuring-info">
-		
-		</div>		
-	<div>
-		
+			<p>
+				<span class = "measurings__input-start" data-field = "cause">+</span>
+				<span>Основание для проведения</span>
+				<span class = "measurings__input-result"></span>									
+			</p>
+			<form class = "hidden" name = "cause">
+				<input type="text" name = "cause">
+				<input type = "submit" value = "Сохранить">
+			</form>
+			
+			<p>
+				<span class = "measurings__input-start" data-field = "client">+</span>
+				<span>Заказчик</span>
+				<span class = "measurings__input-result"></span> 					
+			</p>
+			<form class = "hidden" name = "client">
+				<input type="text" name = "client">
+				<input type = "submit" value = "Сохранить">
+			</form>
+			
+			<p>
+				<span class = "measurings__input-start" data-field = "client_type">+</span>	
+				<span>Тип заказчика</span>
+				<span class = "measurings__input-result"></span>	
+			</p>
+			<form class = "hidden" name = "client_type">
+				<select name = "client_type">
+					<option value = "Юридическое лицо" selected>Юридическое лицо</option>
+					<option value = "Физическое лицо">Физическое лицо</option>
+				</select>
+				<input type = "submit" value = "Сохранить">
+			</form>
+
+			<p>
+				<span class = "measurings__input-start" data-field = "obj">+</span>
+				<span>Объект исследования</span>
+				<span class = "measurings__input-result"></span> 					
+			</p>
+			<form class = "hidden" name = "obj">
+				<input type="text" name = "obj">
+				<input type = "submit" value = "Сохранить">
+			</form>
+
+			<p>
+				<span class = "measurings__input-start" data-field = "place">+</span>
+				<span>Место измерения</span>
+				<span class = "measurings__input-result"></span> 					
+			</p>
+			<form class = "hidden" name = "place">
+				<input type="text" name = "place">
+				<input type = "submit" value = "Сохранить">
+			</form>
+
+			<p>
+				<span class = "measurings__input-start" data-field = "m_dt_start">+</span>
+				<span>Дата начала измерения</span>
+				<span class = "measurings__input-result"></span> 					
+			</p>
+			<form class = "hidden" name = "m_dt_start">
+				<input type="date" name = "m_dt_start">
+				<input type = "submit" value = "Сохранить">
+			</form>
+			
+			<p>
+				<span class = "measurings__input-start" data-field = "m_tm_start">+</span>
+				<span>Время начала измерения</span>
+				<span class = "measurings__input-result"></span> 					
+			</p>
+			<form class = "hidden" name = "m_tm_start">
+				<input type="time" name = "m_tm_start">
+				<input type = "submit" value = "Сохранить">
+			</form>
+
+			<p>
+				<span class = "measurings__input-start" data-field = "m_dt_end">+</span>
+				<span>Дата окончания измерения</span>
+				<span class = "measurings__input-result"></span> 					
+			</p>
+			<form class = "hidden" name = "m_dt_end">
+				<input type="date" name = "m_dt_end">
+				<input type = "submit" value = "Сохранить">
+			</form>
+
+			<p>
+				<span class = "measurings__input-start" data-field = "m_tm_end">+</span>
+				<span>Время окончания измерения</span>
+				<span class = "measurings__input-result"></span> 					
+			</p>
+			<form class = "hidden" name = "m_tm_end">
+				<input type="time" name = "m_tm_end">
+				<input type = "submit" value = "Сохранить">
+			</form>
+
+			<p>
+				<span class = "measurings__input-start" data-field = "measuring_index">+</span>
+				<span>Измеряемый показатель</span>
+				<span class = "measurings__input-result"></span> 					
+			</p>
+			<form class = "hidden" name = "measuring_index">
+				<input type="text" name = "measuring_index">
+				<input type = "submit" value = "Сохранить">
+			</form>
+
+			<p>
+				<span class = "measurings__input-start" data-field = "mes_method">+</span>
+				<span>Методика измерений</span>
+				<span class = "measurings__input-result"></span> 					
+			</p>
+			<form class = "hidden" name = "mes_method">
+				<input type="text" name = "mes_method">
+				<input type = "submit" value = "Сохранить">
+			</form>
+
+			<p>
+				<span class = "measurings__input-start" data-field = "m_t">+</span>
+				<span>Температура при измерении, град. С</span>
+				<span class = "measurings__input-result"></span> 					
+			</p>
+			<form class = "hidden" name = "m_t">
+				<input type="number" step = "any" name = "m_t">
+				<input type = "submit" value = "Сохранить">
+			</form>
+
+			<p>
+				<span class = "measurings__input-start" data-field = "m_rh">+</span>
+				<span>Влажность при измерении, % отн</span>
+				<span class = "measurings__input-result"></span> 					
+			</p>
+			<form class = "hidden" name = "m_rh">
+				<input type="number" step = "any" name = "m_rh">
+				<input type = "submit" value = "Сохранить">
+			</form>
+
+			<p>
+				<span class = "measurings__input-start" data-field = "m_p">+</span>
+				<span>Давление при измерении, кПа</span>
+				<span class = "measurings__input-result"></span> 					
+			</p>
+			<form class = "hidden" name = "m_p">
+				<input type="number" step = "any" name = "m_p">
+				<input type = "submit" value = "Сохранить">
+			</form>
+
+			<p>
+				<span class = "measurings__input-start" data-field = "m_other_mes">+</span>
+				<span>Другие условия при измерении</span>
+				<span class = "measurings__input-result"></span> 					
+			</p>
+			<form class = "hidden" name = "m_other_mes">
+				<input type="text" name = "m_other_mes">
+				<input type = "submit" value = "Сохранить">
+			</form>
+
+			<p>
+				<span class = "measurings__input-start" data-field = "m_unit">+</span>
+				<span>Единица измерений</span>
+				<span class = "measurings__input-result"></span> 					
+			</p>
+			<form class = "hidden" name = "m_unit">
+				<input type="text" name = "m_unit">
+				<input type = "submit" value = "Сохранить">
+			</form>
+
+			<p>
+				<span class = "measurings__input-start" data-field = "m_result">+</span>
+				<span>Результат</span>
+				<span class = "measurings__input-result"></span> 					
+			</p>
+			<form class = "hidden" name = "m_result">
+				<input type="text" name = "m_result">
+				<input type = "submit" value = "Сохранить">
+			</form>
+
+			<p>
+				<span class = "measurings__input-start" data-field = "m_accuracy">+</span>
+				<span>Точность (погрешность)</span>
+				<span class = "measurings__input-result"></span> 					
+			</p>
+			<form class = "hidden" name = "m_accuracy">
+				<input type="text" name = "m_accuracy">
+				<input type = "submit" value = "Сохранить">
+			</form>
+
+			<p>
+				<span class = "measurings__input-start" data-field = "m_executor">+</span>
+				<span>Исполнитель</span>
+				<span class = "measurings__input-result"></span> 					
+			</p>
+			<form class = "hidden" name = "m_executor">
+				<input type="text" name = "m_executor">
+				<input type = "submit" value = "Сохранить">
+			</form>
+			
+			<p>
+				<span class = "measurings__input-start  multiValue" data-field = "meas_eq">+</span>
+				<span>Используемое оборудование</span>
+				<span class = "measurings__input-result"></span> 				
+			</p>
+			<form class = "measuring__equipment-select hidden" name = "meas_eq">
+				<input class = "inputElement" type = "text" name = "meas_eq">					
+				<ul class = ulElement>
+				</ul>					
+				<input type = "submit" value = "Сохранить">
+			</form>
+
+			<p>
+				<span class = "measurings__input-start" data-field = "m_ps">+</span>
+				<span>Примечание</span>
+				<span class = "measurings__input-result"></span> 					
+			</p>
+			<form class = "hidden" name = "m_ps">
+				<input type="text" name = "m_ps">
+				<input type = "submit" value = "Сохранить">
+			</form>			
 	</div>
+			
+	<div>
+		<button class = "measuring__sendButton">Внести запись в журнал</button>
+	</div>		
+
 	
 	
 	<h3>Все измерения</h3>
-	<!--<div>
-		<a href="index.php?measurings">Измерения без отбора проб</a>
-		<a href="index.php?measurings">Измерения с отбором проб</a>
-	</div> -->
+	
 	<div class="records">
 		<table>
 			<thead>
@@ -483,8 +486,7 @@
 										<p>Другие условия</p>
 										<p>Количество пробы</p>
 										<p>Исполнитель</p>
-										<p>Сопроводительные документы</p>
-										<p>Примечание</p>								
+										<p>Сопроводительные документы</p>																	
 									</div>
 									<div>
 										<p><?=$one['selection']['sel_method'];?></p>
@@ -497,8 +499,7 @@
 										<p><?=$one['selection']['sel_other_mes'];?></p>
 										<p><?=$one['selection']['sel_amount']." ".$one['selection']['sel_unit'];?></p>
 										<p><?=$one['selection']['sel_executor'];?></p>
-										<p><?=$one['selection']['sel_docs'];?></p>
-										<p><?=$one['selection']['sel_ps'];?></p>				
+										<p><?=$one['selection']['sel_docs'];?></p>												
 									</div>
 								</div>
 								<?endif;?>

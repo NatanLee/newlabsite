@@ -13,7 +13,7 @@ class MeasuringsModel
 		}
 		return self::$instance;
 	}	
-//получить список СИ
+//получить список СИ +
 	public function getEquipmentSi(){
 		$db = DBModel::Instance();
 		$si = $db->sqlQuery("
@@ -43,7 +43,7 @@ class MeasuringsModel
 		return $si;
 	}
 
-//получить список ВО
+//получить список ВО +
 	public function getEquipmentVo(){
 		$db = DBModel::Instance();
 		$vo = $db->sqlQuery("
@@ -66,7 +66,7 @@ class MeasuringsModel
 		return $vo;		
 	}	
 	
-	//получить список ИО
+//получить список ИО +
 	public function getEquipmentIo(){
 		$db = DBModel::Instance();
 		$io = $db->sqlQuery("
@@ -97,6 +97,23 @@ class MeasuringsModel
 		return $io;	
 	}
 
+//получить список ТИ +
+	public function getEquipmentIo(){
+		$db = DBModel::Instance();
+		$ti = $db->sqlQuery("
+			SELECT 
+				ind,
+				measuring_index,
+				name,
+				shelf_life
+			FROM indicator_tubes")->fetchAllResult();;
+			array_walk($io, function(&$item, $key){
+				$item = 'ИО-'.$item['ind'].' '.$item['name'].' '.$item['model'].', заводской №'.$item['number'].', аттестат №'.$item['doc_number'].' до '.date("d.m.Y", strtotime($item['dt_end']));
+				}		
+			);		
+			return $ti;	
+	
+	}
 
 //записать в таблицу измерения-инструменты для измерений	
 	public function instrSet($str, $meas_ind)
