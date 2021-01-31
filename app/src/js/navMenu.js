@@ -16,12 +16,10 @@ if(menu){
 let xhr = new XMLHttpRequest();
 //xhr.overrideMimeType('text/xml');//для GET-запроса
 
-xhr.onreadystatechange = function (){
-	
+xhr.onreadystatechange = function (){	
 	if (this.readyState == 4 && this.status == 200){
 		getMainMenu(this.responseText);
-	}
-	
+	}	
 }
 
 function getMainMenu(data){

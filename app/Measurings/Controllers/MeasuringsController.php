@@ -104,7 +104,194 @@ class MeasuringsController extends BaseController
 		
 		$this->sel_ind;
 	}
-//получить список испытаний
+//получить список оборудования - задействовано
+	public function getAllEquipment(){
+		$equipment = [];
+		$mMeasuringsModel = MeasuringsModel::Instance();
+		$si = $mMeasuringsModel->getEquipmentSi();
+		$vo = $mMeasuringsModel->getEquipmentVo();
+		$io = $mMeasuringsModel->getEquipmentIo();
+		$equipment = array_merge($si, $vo, $io);
+		echo json_encode($equipment);
+
+	}
+
+//сохранение записи в SQL	
+	public function insertOneMeasuring(){
+		$this->post = json_decode(file_get_contents('php://input'), true);
+		
+		$selection_eq = [];
+		$meas_eq = [];
+
+		$is_direct = htmlspecialchars(trim($this->post['is_direct']));
+		$sel_method = htmlspecialchars(trim($this->post['sel_method']));
+		$sel_dt_start = htmlspecialchars(trim($this->post['sel_dt_start']));
+		$sel_tm_start = htmlspecialchars(trim($this->post['sel_tm_start']));
+		$sel_tm_end = htmlspecialchars(trim($this->post['sel_tm_end']));
+		$to_lab_transfer = htmlspecialchars(trim($this->post['to_lab_transfer']));
+		$sel_t = htmlspecialchars(trim($this->post['sel_t']));
+		$sel_rh = htmlspecialchars(trim($this->post['sel_rh']));
+		$sel_p = htmlspecialchars(trim($this->post['sel_p']));
+		$sel_other_mes = htmlspecialchars(trim($this->post['sel_other_mes']));
+		$sel_amount = htmlspecialchars(trim($this->post['sel_amount']));
+		$sel_unit = htmlspecialchars(trim($this->post['sel_unit']));
+		$selection_eq = $this->post['selection_eq'];
+		$sel_executor = htmlspecialchars(trim($this->post['sel_executor']));
+		$sel_docs = htmlspecialchars(trim($this->post['sel_docs']));
+		$cause = htmlspecialchars(trim($this->post['cause']));
+		$client = htmlspecialchars(trim($this->post['client']));
+		$client_type = htmlspecialchars(trim($this->post['client_type']));
+		$obj = htmlspecialchars(trim($this->post['obj']));
+		$place = htmlspecialchars(trim($this->post['place']));
+		$m_dt_start = htmlspecialchars(trim($this->post['m_dt_start']));
+		$m_tm_start = htmlspecialchars(trim($this->post['m_tm_start']));
+		$m_dt_end = htmlspecialchars(trim($this->post['m_dt_end']));
+		$m_tm_end = htmlspecialchars(trim($this->post['m_tm_end']));
+		$measuring_index = htmlspecialchars(trim($this->post['measuring_index']));
+		$mes_method = htmlspecialchars(trim($this->post['mes_method']));
+		$m_t = htmlspecialchars(trim($this->post['m_t']));
+		$m_rh = htmlspecialchars(trim($this->post['m_rh']));
+		$m_p = htmlspecialchars(trim($this->post['m_p']));
+		$m_other_mes = htmlspecialchars(trim($this->post['m_other_mes']));
+		$m_unit = htmlspecialchars(trim($this->post['m_unit']));
+		$m_result = htmlspecialchars(trim($this->post['m_result']));
+		$m_accuracy = htmlspecialchars(trim($this->post['m_accuracy']));
+		$m_executor = htmlspecialchars(trim($this->post['m_executor']));
+		$meas_eq = $this->post['meas_eq'];
+		$m_ps = htmlspecialchars(trim($this->post['m_ps']));
+
+		//var_dump($selection_eq);
+		//var_dump($meas_eq);
+		
+		var_dump($allEquipment);
+		
+		
+		/*
+		$db = DBModel::Instance();
+		$lastObjectIndex = $db->sqlQueryAndGetId("INSERT measuring_objects SET
+			cause = '$cause',
+			client = '$client',
+			client_type = '$client_type',
+			obj = '$obj',
+			place = '$place'
+		");
+		if(!$is_direct){
+			$lastSelectionIndex = $db->sqlQueryAndGetId("INSERT measuring_selection SET 
+				obj_ind = '$lastObjectIndex', 
+				sel_method = '$sel_method', 
+				sel_dt_start = '$sel_dt_start', 
+				sel_tm_start = '$sel_tm_start', 
+				sel_dt_end = '$sel_dt_end',
+				sel_tm_end = '$sel_tm_end',
+				to_lab_transfer = '$to_lab_transfer',
+				sel_t = '$sel_t',
+				sel_p = '$sel_p',
+				sel_rh = '$sel_rh',
+				sel_other_mes = '$sel_other_mes',
+				sel_amount = '$sel_amount',
+				sel_unit = '$sel_unit',			
+				sel_executor = '$sel_executor',
+				sel_docs = '$sel_docs'
+			");	
+		}
+		
+		$lastMeasuringIndex = $db->sqlQueryAndGetId("INSERT measuring SET 
+			obj_ind = '$lastObjectIndex',
+			direct = '$is_direct',
+			measuring_index = '$measuring_index', 
+			mes_method = '$mes_method', 
+			m_dt_start = '$m_dt_start', 
+			m_tm_start = '$m_tm_start',
+			m_dt_end = '$m_dt_end',
+			m_tm_end = '$m_tm_end',			
+			m_result = '$m_result',
+			m_unit = '$m_unit',
+			m_accuracy = '$m_accuracy',			
+			m_executor = '$m_executor',
+			m_ps = '$m_ps'
+		");
+					
+		 $db->sqlQuery("INSERT measuring_environment SET 
+			meas_ind = '$lastMeasuringIndex',
+			dt = '$m_dt_start',
+			tm = '$m_tm_start', 
+			m_t = '$m_t', 
+			m_rh = '$m_rh', 
+			m_p = '$m_p',
+			m_other_mes = '$m_other_mes'		
+		");
+
+		*/
+				
+		foreach ($selection_eq as &$eq){
+			$source = $eq;
+			$eq = explode(" ", $eq, -1);
+			$code = explode("-", $eq[0], 2);
+			$code[] = $source;
+			$code[] = !$is_direct;
+			$eq = $code;
+			unset($eq);
+		}
+		foreach ($meas_eq as &$eq){
+			$source = $eq;
+			$eq = explode(" ", $eq, -1);
+			$code = explode("-", $eq[0], 2);
+			$code[] = $source;
+			$code[] = false;
+			$eq = $code;			
+			unset($eq);
+		}
+		$allEquipment = array_merge($selection_eq, $meas_eq);
+		$colunm = "";
+		foreach ($allEquipment as $eq){	
+			if(mb_strtolower($eq[0]) == "си"){
+				$column = "meas_eq_index";
+			}elseif(mb_strtolower($eq[0]) == "ио" || mb_strtolower($eq[0]) == "во"){
+				$column = "test_eq_index";
+			}elseif(mb_strtolower($eq[0]) == "ти"){
+				$column = "indicator_tube_index";
+			}else{
+
+			}
+
+			
+			/*$db->sqlQuery("INSERT measuring_instruments SET
+			selection_index = '$lastSelectionIndex',				
+			$column = '$eq[1]',
+			equipment_info = '$eq[2]'");*/
+		} 
+
+		/*$db->sqlQuery("INSERT measuring_instruments SET
+			selection_index = '$lastSelectionIndex',
+			meas_ind
+			meas_eq_index
+			test_eq_index
+			indicator_tube_index
+			equipment_info
+		");*/
+		var_dump($allEquipment);
+		
+			
+			
+			
+			
+			
+			
+		/*	$db->sqlQuery("INSERT measuring_instruments SET
+				selection_index = '$lastSelectionIndex',
+				meas_ind
+				meas_eq_index
+				test_eq_index
+				indicator_tube_index
+				equipment_info
+			");*/
+
+		//$all = $db->sqlQuery("");
+		//echo json_decode($this->post);
+		exit;
+	} 
+
+//получить список испытаний - задействовано
 	public function getAll()
 	{
 		$db = DBModel::Instance();
@@ -244,28 +431,8 @@ class MeasuringsController extends BaseController
 			'errors'=>$this->errors, 
 			'all'=>$all			
 		]);	
-	}
-	
+	}	
 
-	
-	
-	/* public function getNonDirect()
-	{
-		$db = DBModel::Instance();
-		$all = $db->sqlQuery(
-			"SELECT 
-			* 
-			FROM measuring		
-			INNER JOIN measuring_objects 
-			ON measuring_objects.obj_ind = measuring.obj_ind			
-			AND measuring.sel_ind='".$_GET['selection']."'
-			AND measuring.direct = '0'")->fetchAllResult();		
-		echo $this->fullRender('Measurings/Views/MeasuringsNonDirect.html.php',[
-			'errors'=>$this->errors, 
-			'all'=>$all,			
-		]);	
-	}	 */
-	
 //получить сведения об отборе проб одного объекта
 	public function getSelection()
 	{
@@ -534,6 +701,9 @@ class MeasuringsController extends BaseController
 		}else{
 			$this->getAll();
 		}
-	}				
+	}	
+	
+	
+
 		
 }
