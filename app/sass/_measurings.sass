@@ -1,6 +1,7 @@
 .measurings
 	&__details
 		display: flex
+<<<<<<< HEAD
 
 	.environment
 		display: flex
@@ -14,3 +15,40 @@
 	.selection
 		display: flex
 		border: 1px solid $border-color
+=======
+		overflow: hidden
+		transition: all 1s ease-out
+		&_hidden
+			max-height: 0
+		&_visible
+			max-height: 500px			
+	&__details-button
+		&::before
+			content: '\25BA'
+			font-size: 120%
+		&.open::before
+			content: '\25BC'		
+	.environment
+		&__title
+			font-weight: 700
+		padding: 0 5px
+		border: 1px solid $border-color
+		&__info
+			display: flex
+
+	.equipment
+		&__title
+			font-weight: 700
+		padding: 0 5px
+		border: 1px solid $border-color
+		&__info
+			display: flex
+
+	.selection
+		&__title
+			font-weight: 700
+		padding: 0 5px
+		border: 1px solid $border-color
+		&__info
+			display: flex
+>>>>>>> bdfcc8399b3067d9d3e4937a34f9d8d399c0414d

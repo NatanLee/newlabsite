@@ -8,6 +8,159 @@
 	<div class="addMenu">
 		<a href="index.php?measuringsObjects">Внести новый объект испытаний или испытание</a>
 	</div>
+		<div  class = "inputForm">
+			<div>Сведения об объекте испытаний</div>
+				<p>
+					<span class = "measurings__input-start" data-field = "cause@text">
+						+
+					</span>
+					<span>
+						Основание для проведения
+					</span>
+					<span class = "measurings__input-result"></span>					
+				</p>
+				<p>
+					<span class = "measurings__input-start" data-field = "client@text">
+						+
+					</span>
+					<span>
+						Заказчик
+					</span>
+					<span class = "measurings__input-result"></span> 					
+				</p>
+				<p data-field = "client_type">Тип заказчика</p>
+				<p data-field = "obj">Объект исследования</p>
+				<p data-field = "place">Место измерения</p>
+			
+			
+			<!--
+			<form >				
+				<label for="cause">Основание для проведения</label>
+				<input type="text" name ="cause" value="" id="cause" required>
+				
+				<label for="client">Заказчик</label>
+				<input type="text" name ="client" value="" id="client" required>
+				
+				<label for="client_type">Тип заказчика</label>
+				<input type="text" name ="client_type" value="" id="client_type" required>
+				
+				<label for="obj">Объект исследования</label>
+				<input type="text" name ="obj" value="" id="obj" required>
+								
+				<label for="place">Место измерения</label>
+				<input type="text" name ="place" value="" id="place" required>
+				
+				<label for="ps">Примечание</label>
+				<input type="text" name ="ps" value="" id="ps">
+				
+				
+				<label for="sel_method">Методика отбора</label>
+				<input type="text" name ="sel_method" value="<?=$sel_method?>" id="sel_method" required>
+				
+				<label for="sel_dt_start">Дата начала отбора</label>
+				<input type="date" name ="sel_dt_start" value="<?=$sel_dt_start?>" id="sel_dt_start" required>
+				
+				<label for="sel_tm_start">Время начала отбора</label>
+				<input type="time" name ="sel_tm_start" value="<?=$sel_tm_start?>" id="sel_tm_start" required>
+				
+				<label for="sel_dt_end">Дата окончания отбора</label>
+				<input type="date" name ="sel_dt_end" value="<?=$sel_dt_end?>" id="sel_dt_end" required>
+				
+				<label for="sel_tm_end">Время окончания отбора</label>
+				<input type="time" name ="sel_tm_end" value="<?=$sel_tm_end?>" id="sel_tm_end" required>		
+					
+				<label for="to_lab_transfer">Дата передачи пробы в лабораторию</label>
+				<input type="date" name ="to_lab_transfer" value="<?=$to_lab_transfer?>" id="to_lab_transfer" required>			
+							
+				<label for="sel_t">Температура при отборе</label>
+				<input type="number" step="any" name ="sel_t" value="<?=$sel_t?>" id="sel_t" required>
+								
+				<label for="sel_rh">Влажность при отборе</label>
+				<input type="number" step="any" name ="sel_rh" value="<?=$sel_rh?>" id="sel_rh" required>
+									
+				<label for="sel_p">Давление при отборе</label>
+				<input type="number" step="any" name ="sel_p" value="<?=$sel_p?>" id="sel_p" required>
+										
+				<label for="sel_other_mes">Другие условия при отборе</label>
+				<input type="text" name ="sel_other_mes" value="<?=$sel_other_mes?>" id="sel_other_mes" required>
+											
+				<label for="sel_amount">Количество пробы</label>
+				<input type="number" step="any" name ="sel_amount" value="<?=$sel_amount?>" id="sel_amount" required>
+												
+				<label for="sel_unit">Единица измерений</label>
+				<input type="text" name ="sel_unit" value="<?=$sel_unit?>" id="sel_unit" required>
+													
+				<label for="sel_eq">Оборудование для отбора пробы</label>
+				<input type="text" placeholder="Формат: СИ-001, ИО-002, ВО-003" name ="sel_eq" value="<?=$sel_eq?>" id="sel_eq" required>
+														
+				<label for="sel_executor">Исполнитель</label>
+				<input type="text" name ="sel_executor" value="<?=$sel_executor?>" id="sel_executor" required>
+
+				<label for="sel_docs">Сопроводительные документы</label>
+				<input type="text" name ="sel_docs" value="<?=$sel_docs?>" id="sel_docs" required>
+																
+				<label for="sel_ps">Примечание</label>
+				<input type="text" name ="sel_ps" value="<?=$sel_ps?>" id="sel_ps">
+				
+				<label for="m_dt_start">Дата начала измерения</label>
+				<input type="date" name ="m_dt_start" value="<?=$m_dt_start?>" id="m_dt_start">
+				
+				<label for="m_tm_start">Время начала измерения</label>
+				<input type="time" name ="m_tm_start" value="<?=$m_tm_start?>" id="m_tm_start">
+				
+				<label for="m_dt_end">Дата окончания измерения</label>
+				<input type="date" name ="m_dt_end" value="<?=$m_dt_end?>" id="m_dt_end">
+				
+				<label for="m_tm_end">Время окончания измерения</label>
+				<input type="time" name ="m_tm_end" value="<?=$m_tm_end?>" id="m_tm_end">		
+					
+				<label for="measuring_index">Измеряемый показатель</label>
+				<input type="text" name ="measuring_index" value="<?=$measuring_index?>" id="measuring_index">			
+							
+				<label for="mes_method">Методика измерений</label>
+				<input type="text" name ="mes_method" value="<?=$mes_method?>" id="mes_method">
+								
+				<label for="m_t">Температура при измерении</label>
+				<input type="number" step="any" name ="m_t" value="<?=$m_t?>" id="m_t">
+									
+				<label for="m_rh">Влажность при измерении</label>
+				<input type="number" step="any" name ="m_rh" value="<?=$m_rh?>" id="m_rh">
+										
+				<label for="m_p">Давление при измерении</label>
+				<input type="number" step="any" name ="m_p" value="<?=$m_p?>" id="m_p">
+											
+				<label for="m_other_mes">Другие условия при измерении</label>
+				<input type="text" name ="m_other_mes" value="<?=$m_other_mes?>" id="m_other_mes">
+												
+				<label for="m_unit">Единица измерений</label>
+				<input type="text" name ="m_unit" value="<?=$m_unit?>" id="m_unit">
+													
+				<label for="m_result">Результат</label>
+				<input type="text" name ="m_result" value="<?=$m_result?>" id="m_result">
+														
+				<label for="m_accuracy">Точность (погрешность)</label>
+				<input type="text" name ="m_accuracy" value="<?=$m_accuracy?>" id="m_accuracy">
+															
+				<label for="m_eq">Используемое оборудование</label>
+				<input type="text" placeholder="Формат: СИ-001, ИО-002, ВО-003" name ="m_eq" value="<?=$m_eq?>" id="m_eq">
+															
+				<label for="m_executor">Исполнитель</label>
+				<input type="text" name ="m_executor" value="<?=$m_executor?>" id="m_executor">
+																
+				<label for="m_ps">Примечание</label>
+				<input type="text" name ="m_ps" value="<?=$m_ps?>" id="m_ps">
+			 
+			
+			</form>
+			-->
+		</div>
+			
+		<div  class = "measuring-info">
+		
+		</div>		
+	<div>
+		
+	</div>
 	
 	
 	<h3>Все измерения</h3>
@@ -57,10 +210,17 @@
 				</tr>
 				<tr>
 					<td colspan = "15">
+<<<<<<< HEAD
 						<div class = "measurings__details measurings__details_hidden" data-measuring-number-show = <?=$one['meas_ind']?> >
 							<div>
 								<p>Условия проведения измерений</p>
 								<div class = "environment">
+=======
+						<div class = "measurings__details measurings__details_hidden measuring_number__<?=$one['meas_ind']?>">
+							<div div class = "environment">
+								<p div class = "environment__title">Условия проведения измерений</p>
+								<div class = "environment__info">
+>>>>>>> bdfcc8399b3067d9d3e4937a34f9d8d399c0414d
 									<div>
 										<p>Дата</p>
 										<p>Время</p>
@@ -81,9 +241,9 @@
 									<?endforeach;?>
 								</div>						
 							</div>
-							<div>
-								<p>Используемое оборудование</p>
-								<div class = "instruments">
+							<div class = "equipment">
+								<p class = "equipment__title">Используемое оборудование</p>
+								<div class = "equipment__info">
 									<ol>	
 									<?foreach($one['instruments'] as $three):?> 									
 										<li><?=$three['equipment_info']?></li>
@@ -91,12 +251,12 @@
 									</ol>	
 								</div>
 							</div>
-							<div>
-								<p>Сведения об отборе пробы</p>
+							<div class = "selection">
+								<p class = "selection__title">Сведения об отборе пробы</p>
 								<?if(!$one['selection']):?>
 								<p>Прямое измерение без отбора пробы</p>
 								<?else:?>
-								<div class = "selection">							
+								<div class = "selection__info">							
 									<div>
 										<p>Метод отбора</p>
 										<p>Дата и время начала отбора пробы</p>
@@ -135,4 +295,5 @@
 			<?endforeach;?>				
 		</table>			
 	</div>
-</section>	
+</section>
+<script src = "/src/js/measuring.js"></script>

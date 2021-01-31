@@ -76,14 +76,25 @@ if (canvas){
 let meauringDetailsButton = document.querySelectorAll('.measurings__details-button');
 meauringDetailsButton.forEach(item => {
 	item.onclick = function(event){
+<<<<<<< HEAD
 	let measuringHiddenElem = document.querySelector('[data-measuring-number-show="' + event.target.dataset.measuringNumber + '"]');
 		console.log(event.target.dataset.measuringNumber);
 		console.log(measuringHiddenElem);
+=======
+		let sNumber = event.target.dataset.measuringNumber;
+		let elem = document.querySelector(`.measuring_number__${sNumber}`);
+		elem.classList.toggle("measurings__details_visible");		
+		this.classList.toggle("open");
+>>>>>>> bdfcc8399b3067d9d3e4937a34f9d8d399c0414d
 	};
 });
 
 
+<<<<<<< HEAD
 let measuringsDetails = document.querySelector('.measurings__details');
+=======
+//let measuringsDetails = document.querySelector('.measurings__details');
+>>>>>>> bdfcc8399b3067d9d3e4937a34f9d8d399c0414d
 
 
 
