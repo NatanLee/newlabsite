@@ -98,7 +98,7 @@ class MeasuringsModel
 	}
 
 //получить список ТИ +
-	public function getEquipmentIo(){
+	public function getEquipmentTi(){
 		$db = DBModel::Instance();
 		$ti = $db->sqlQuery("
 			SELECT 
@@ -106,9 +106,10 @@ class MeasuringsModel
 				measuring_index,
 				name,
 				shelf_life
-			FROM indicator_tubes")->fetchAllResult();;
-			array_walk($io, function(&$item, $key){
-				$item = 'ИО-'.$item['ind'].' '.$item['name'].' '.$item['model'].', заводской №'.$item['number'].', аттестат №'.$item['doc_number'].' до '.date("d.m.Y", strtotime($item['dt_end']));
+			FROM indicator_tubes
+			WHERE in_use = '1'")->fetchAllResult();;
+			array_walk($ti, function(&$item, $key){
+				$item = 'ТИ-'.$item['ind'].' трубка индикаторная ('.mb_strtolower($item['measuring_index']).'), действительна до '.date("d.m.Y", strtotime($item['shelf_life']));
 				}		
 			);		
 			return $ti;	

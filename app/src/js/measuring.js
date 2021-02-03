@@ -52,13 +52,14 @@ Measuring.prototype.getAllEquipment = function(){
 	xhr.onload = () => {
 		let responseObj = xhr.response;
 		this.fillSelectByEquipment(responseObj);
+		//console.log(responseObj);
 	};
 	xhr.open('GET', 'index.php?allEquipment');
 	xhr.responseType = 'json';
 	xhr.send();		
 };
 
-//вывод списка оборудования в инпут
+//вывод списка оборудования в инпут при вводе текста
 Measuring.prototype.fillSelectByEquipment = function(equipment){
 	const inputForms = document.querySelectorAll('.measuring__equipment-select');
 	inputForms.forEach(element => {	
@@ -142,3 +143,17 @@ Measuring.init = function(that){
 };
 
 new Measuring();
+
+
+
+
+//////////////////тогл для таблицы измерений
+let meauringDetailsButton = document.querySelectorAll('.measurings__details-button');
+meauringDetailsButton.forEach(item => {
+	item.onclick = function(event){
+		let sNumber = event.target.dataset.measuringNumber;
+		let elem = document.querySelector(`.measuring_number__${sNumber}`);
+		elem.classList.toggle("measurings__details_visible");		
+		this.classList.toggle("open");
+	};
+});

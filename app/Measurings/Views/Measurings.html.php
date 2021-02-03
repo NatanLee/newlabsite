@@ -435,17 +435,10 @@
 				</tr>
 				<tr>
 					<td colspan = "15">
-<<<<<<< HEAD
-						<div class = "measurings__details measurings__details_hidden" data-measuring-number-show = <?=$one['meas_ind']?> >
-							<div>
-								<p>Условия проведения измерений</p>
-								<div class = "environment">
-=======
 						<div class = "measurings__details measurings__details_hidden measuring_number__<?=$one['meas_ind']?>">
 							<div div class = "environment">
 								<p div class = "environment__title">Условия проведения измерений</p>
 								<div class = "environment__info">
->>>>>>> bdfcc8399b3067d9d3e4937a34f9d8d399c0414d
 									<div>
 										<p>Дата</p>
 										<p>Время</p>

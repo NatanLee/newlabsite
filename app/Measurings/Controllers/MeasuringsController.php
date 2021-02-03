@@ -111,7 +111,8 @@ class MeasuringsController extends BaseController
 		$si = $mMeasuringsModel->getEquipmentSi();
 		$vo = $mMeasuringsModel->getEquipmentVo();
 		$io = $mMeasuringsModel->getEquipmentIo();
-		$equipment = array_merge($si, $vo, $io);
+		$ti = $mMeasuringsModel->getEquipmentTi();
+		$equipment = array_merge($si, $vo, $io, $ti);		
 		echo json_encode($equipment);
 
 	}
